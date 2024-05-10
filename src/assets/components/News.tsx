@@ -21,20 +21,21 @@ function News({ category }: Props) {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        setLoading(true);
-        const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?country=in&apiKey=a11a36eda76d4ebf93e3f56a74f03844`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch Tesla news");
-        }
-        const data = await response.json();
-        setNews(data.articles);
-      } catch (error: any) {
-        setErr(error.message);
-      } finally {
-        setLoading(false);
-      }
+  setLoading(true);
+  const response = await fetch(
+    `https://newsapi.org/v2/top-headlines?country=in&apiKey=a11a36eda76d4ebf93e3f56a74f03844`
+  );
+  if (!response.ok) {
+    throw new Error("Failed to fetch top headlines");
+  }
+  const data = await response.json();
+  setNews(data.articles);
+} catch (error: any) {
+  setErr(error.message); // Adjust the error message here
+} finally {
+  setLoading(false);
+}
+
     };
 
     fetchNews();
