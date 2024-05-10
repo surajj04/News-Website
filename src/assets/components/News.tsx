@@ -23,7 +23,7 @@ function News({ category }: Props) {
       try {
         setLoading(true);
         const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=a11a36eda76d4ebf93e3f56a74f03844`
+          `https://newsapi.org/v2/top-headlines?country=in&apiKey=a11a36eda76d4ebf93e3f56a74f03844`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch Tesla news");
